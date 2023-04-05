@@ -7,18 +7,25 @@ export default class Counter extends Component {
         tags: ['tags1', 'tag2', 'tag3', 'tag4']
     };
 
+    renderTags() {
+        if (this.state.tags.length === 0) return <p>There is no tags!</p>;
+        return <ul>
+            { this.state.tags.map(tag => <li key={tag}>{tag}</li>)}            
+        </ul>;
+    }
+
     render() {
 
+        
         let classes = this.getBadgeClasses()
 
         return (
         <>
         <span className={classes}>{this.formatCount()}</span>
         <button className='btn btn-secondary btn-sm'>Increment</button>
-        <ul>
-            { this.state.tags.map(tag => <li key={tag}>{tag}</li>)}            
-        </ul>
-        </>
+        { this.state.tags.length === 0 && <p>Please create a new tag!</p>}
+        {this.renderTags()}
+       </>
         );
     }
 
