@@ -1,9 +1,9 @@
-import Counter from "./components/counter"
+import Counters from "./components/coutners"
 
 export default function App() {
     return (
       <>
-       <Counter /> 
+       <Counters /> 
        </>
     )
   }
